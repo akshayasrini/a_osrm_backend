@@ -9,10 +9,10 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t a_osrm_backend:latest .
-      - docker tag a_osrm_backend:latest   864981732779.dkr.ecr.ap-south-1.amazonaws.com/a_osrm_backend:latest     
+      - docker build -t osrm-backend:latest .
+      - docker tag osrm-backend:latest   864981732779.dkr.ecr.ap-south-1.amazonaws.com/osrm-backend:latest     
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 864981732779.dkr.ecr.ap-south-1.amazonaws.com/a_osrm_backend:latest  
+      - docker push 864981732779.dkr.ecr.ap-south-1.amazonaws.com/osrm-backend:latest  
