@@ -4,12 +4,12 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login--region ap-south-1 --no-include-email
+      - aws ecr get-login--region ap-south-1 | docker login --username AWS --password-stdin 864981732779.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t a_osrm_backend:latest   .
+      - docker build -t a_osrm_backend:latest   
       - docker tag a_osrm_backend:latest   864981732779.dkr.ecr.ap-south-1.amazonaws.com/a_osrm_backend:latest     
   post_build:
     commands:
